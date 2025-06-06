@@ -75,3 +75,5 @@ def usun_sale(id):
 # TODO-2: Nastepnie w pliku models.py trzeba dodać klasy które odzwierciedlają tabele z bazy danych
 # TODO-3: Dla każdej encji trzeba stworzyć odpowiedni plik html, ktory bedzie renderowany w widoku
 # TODO-4: Dodanie przycisku dla każdego widoku do powrotu na strone główną
+# TODO-5*: W przypadku rezerwacji trzeba będzie napisać kod który nie będzie pozwalał
+#          na overbooking rezerwacji
