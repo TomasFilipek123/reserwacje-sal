@@ -40,8 +40,14 @@ def sale():
         wyposazenie = request.form['wyposażenie']
         nazwa_budynku = request.form['nazwa_budynku']
 
-        # wyszukiwanie budynku po nazwie
+        # Wyszukiwanie budynku po nazwie
         budynek = Budynek.query.filter_by(nazwa_budynku=nazwa_budynku).first()
+
+        # TODO: Zmien ta instrukcje warunkowa tak, aby wyświetlała okienko
+        #       z komunikatem "Budynek o takiej nazwie nie istnieje" i dawało
+        #       możliwość wpisania jeszcze raz nazwy budynku.
+        #       Ewentualnie można też dodać przycisk przegladaj budynki,
+        #       żeby użytkownik miał możliwość zobaczenia budynkow, ktore ma do wyboru
         if not budynek:
             return "Budynek o takiej nazwie nie istnieje", 400
 
@@ -63,3 +69,9 @@ def usun_sale(id):
     db.session.commit()
     return redirect(url_for('main.sale'))
 
+# TODO-1: Dodaj widoki dla Ról, Użytkowników, Przedmiotów, Rezerwacji i Grup Cyklicznych
+#       Każdy widok będzie miał dwie funkcje: pierwsza do wyświetlania tabeli i dodawania, druga
+#       do usuwania rekordu.
+# TODO-2: Nastepnie w pliku models.py trzeba dodać klasy które odzwierciedlają tabele z bazy danych
+# TODO-3: Dla każdej encji trzeba stworzyć odpowiedni plik html, ktory bedzie renderowany w widoku
+# TODO-4: Dodanie przycisku dla każdego widoku do powrotu na strone główną
